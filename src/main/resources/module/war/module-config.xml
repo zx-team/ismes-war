@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="war" version="1.0.0" category="system">
+	<information>
+		<name>System User Management</name>
+		<vendor>
+			<name>Isesol isMES</name>
+			<url>http://www.isesol.com/</url>
+		</vendor>
+		<description>User is a module which adds user functionality to system.</description>
+		<license>AGPL</license>
+	</information>
+	<activities>
+		<activity name="ycgj" dialect="java"  roles="MANUFACTURING_MANAGEMENT_ROLE" class="com.isesol.mes.ismes.war.activity.YcgjActivity"/>
+		<activity name="service" dialect="java"  class="com.isesol.mes.ismes.war.activity.GjActivity"/>
+	</activities>
+	<roles>
+		<role name="MANUFACTURING_MANAGEMENT_ROLE" label="生产管理人员_告警" description="生产管理相关" />
+	</roles>
+	<menus>
+		<!-- 现场监控（一级） -->
+		<category name="monitor_management" label="现场监控" icon="#f5c14f;Query_statistics"  weight="5"/>
+		<menu name="warmanagement" label="异常告警" activity="ycgj" activity-method="query_ycgj" 
+			category="monitor_management" roles="MANUFACTURING_MANAGEMENT_ROLE" description="异常告警" icon="button" weight="30"/>
+	</menus>
+	<services>
+		<service name = "sbgj_service" activity = "service" activity-method = "saveSbgj"/>
+		<service name = "qlgj_service" activity = "service" activity-method = "saveQlgj"/>
+		<service name = "gzgj_service" activity = "service" activity-method = "saveGzgj"/>
+		<service name = "zlgj_service" activity = "service" activity-method = "saveZlgj"/>
+		<service name = "hxsq_service" activity = "service" activity-method = "saveHxsq"/>
+		
+	</services>
+</module>

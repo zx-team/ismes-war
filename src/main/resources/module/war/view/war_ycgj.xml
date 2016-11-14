@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view name="war_ycgj" title="异常告警">
+	<panel layoutconstraint="md:6;sm:6;">
+		<panel-body>
+			<table name="table_sbgj" scroll="false" url="/ycgj/table_ycgj?gjlxdm=10" minheight="200"  pagesize="5" onDblClickRow="dbltable_sbgjClickrow" layoutconstraint="md:12;sm:12;">
+				
+				<column label="设备异常告警" name="gjxx" ></column>
+				<column label="告警标题" name="gjbt" hidden="true" ></column>
+				<column label="告警时间" name="gjsj" hidden="true" ></column>
+				<column label="告警内容" name="gjnr"  hidden="true" ></column>
+				<column label="告警等级" name="gjdjdm"  hidden="true" ></column>
+				<column label="告警处理状态" name="gjclztdm"  hidden="true" ></column>
+				<column label="操作人" name="czr_name"  hidden="true"  ></column>
+				<column label="告警ID" name="gjid" key="true" hidden="true"></column>
+			</table>
+		</panel-body>
+	</panel>
+	<panel layoutconstraint="md:6;sm:6;">
+		<panel-body>
+			<table name="table_zlgj" scroll="false"  url="/ycgj/table_ycgj?gjlxdm=40" minheight="200" pagesize="5" onDblClickRow="dbltable_zlgjClickrow" layoutconstraint="md:12;sm:12;">
+				
+				<column label="质量异常告警" name="gjxx" ></column>
+				<column label="告警标题" name="gjbt" hidden="true" ></column>
+				<column label="告警时间" name="gjsj" hidden="true" ></column>
+				<column label="告警内容" name="gjnr"  hidden="true" ></column>
+				<column label="告警等级" name="gjdjdm"  hidden="true" ></column>
+				<column label="告警处理状态" name="gjclztdm"  hidden="true" ></column>
+				<column label="操作人" name="czr_name"  hidden="true" ></column>
+				<column label="告警ID" name="gjid" key="true" hidden="true"></column>
+			</table>
+		</panel-body>
+	</panel>
+	<panel layoutconstraint="md:6;sm:6;">
+		<panel-body>
+			<table name="table_wlgj" scroll="false"   url="/ycgj/table_ycgj?gjlxdm=20" minheight="200" pagesize="5" onDblClickRow="dbltable_wlgjClickrow" layoutconstraint="md:12;sm:12;">
+				
+				<column label="物料及工装告警" name="gjxx"  ></column>
+				<column label="告警标题" name="gjbt" hidden="true" ></column>
+				<column label="告警时间" name="gjsj" hidden="true" ></column>
+				<column label="告警内容" name="gjnr"  hidden="true" ></column>
+				<column label="告警等级" name="gjdjdm"  hidden="true" ></column>
+				<column label="告警处理状态" name="gjclztdm"  hidden="true" ></column>
+				<column label="操作人" name="czr_name"  hidden="true" ></column>
+				<column label="告警ID" name="gjid" key="true" hidden="true"></column>
+			</table>
+		</panel-body>
+	</panel>
+	<panel layoutconstraint="md:6;sm:6;">
+		<panel-body>		
+			<table name="table_jdgj" scroll="false"   url="/ycgj/table_ycgj?gjlxdm=30" minheight="200" pagesize="5" onDblClickRow="dbltable_jdgjClickrow" layoutconstraint="md:12;sm:12;">
+				
+				<column label="进度异常告警" name="gjxx"  ></column>
+				<column label="告警标题" name="gjbt" hidden="true" ></column>
+				<column label="告警时间" name="gjsj" hidden="true" ></column>
+				<column label="告警内容" name="gjnr"  hidden="true" ></column>
+				<column label="告警等级" name="gjdjdm"  hidden="true" ></column>
+				<column label="告警处理状态" name="gjclztdm"  hidden="true" ></column>
+				<column label="操作人" name="czr_name"  hidden="true" ></column>
+				<column label="告警ID" name="gjid" key="true" hidden="true"></column>
+			</table>
+		</panel-body>
+	</panel>
+	<modal name="gjclModal" heading="告警处理" sizing="large" show="false" keyboard="true" >
+		<modal-body>
+			<form name="form-horizontal"  horizontal="true">
+				<form-body>
+					<hidden name="gjcl_gjid"  />
+					<hidden name="gjcl_gjclztdm"  />
+					<form-group>
+						<label for="gjcl_gjbt" text="异常告警标题：" layoutconstraint="md:4;sm:4"/>
+						<bunch layoutconstraint="md:8;sm:8">
+							<plaintext name="gjcl_gjbt"  />
+						</bunch>
+					</form-group>
+					<form-group>
+						<label for="gjcl_gjnr" text="异常告警内容：" layoutconstraint="md:4;sm:4"/>
+						<bunch layoutconstraint="md:8;sm:8">
+							<plaintext name="gjcl_gjnr"  />
+						</bunch>
+					</form-group>
+					<form-group>
+						<label for="gjcl_gjdjdm" text="异常等级：" layoutconstraint="md:4;sm:4"/>
+						<bunch layoutconstraint="md:8;sm:8">
+							<plaintext name="gjcl_gjdjdm"  />
+						</bunch>
+					</form-group>
+					<form-group>
+						<label for="gjcl_gjsj" text="异常告警时间：" layoutconstraint="md:4;sm:4"/>
+						<bunch layoutconstraint="md:8;sm:8">
+							<plaintext name="gjcl_gjsj"  />
+						</bunch>
+					</form-group>
+					<form-group>
+						<label for="gjcl_czr" text="报警人：" layoutconstraint="md:4;sm:4"/>
+						<bunch layoutconstraint="md:8;sm:8">
+							<plaintext name="gjcl_czr"  />
+						</bunch>
+					</form-group>
+				</form-body>
+			</form>
+		</modal-body>
+		<modal-footer>
+			<button name="closegjclModalClick1" label="关闭" type="button" context="primary"  onClick="close_ycgjWindow"></button>
+			<button name="gjclModalClick" label="已处理" type="button" context="primary" onClick="gjclBtnClick"></button>
+		</modal-footer>
+	</modal>
+	
+	<attribute name="javascript">
+	<![CDATA[
+		window.setInterval(rftable,5000);
+		function rftable() {
+	    	ui.table("table_sbgj").reload();
+	       	ui.table("table_jdgj").reload();
+	       	ui.table("table_wlgj").reload();
+	       	ui.table("table_zlgj").reload();
+	    }
+		function colorforma(rowid,colmodel,rowdata,action){
+			if(rowdata.gjdjdm=="10")
+			{
+				return '<div style="width:100%;height:100%;background-color:#f04242;color:#fff">'+rowdata.gjxx+'</div>';
+			}else if(rowdata.gjdjdm=="20")
+			{
+				return '<div style="width:100%;height:100%;background-color:#f46c6c;color:#fff">'+rowdata.gjxx+'</div>';
+			}else if(rowdata.gjdjdm=="30")
+			{
+				return '<div style="width:100%;height:100%;background-color:#ff8b8b;color:#fff">'+rowdata.gjxx+'</div>';
+			}else
+			{
+				return '<div style="width:100%;height:100%;background-color:#fcabac;color:#fff">'+rowdata.gjxx+'</div>';
+			}
+	    	
+	    }
+		
+
+		function dbltable_sbgjClickrow(rowid,status) {
+			ui.hidden("gjcl_gjid").val(ui.table("table_sbgj").getCell(rowid,"gjid"));
+			$('#gjcl_gjbt').html(ui.table("table_sbgj").getCell(rowid,"gjbt"));
+			$('#gjcl_gjnr').html(ui.table("table_sbgj").getCell(rowid,"gjnr"));
+			var gjdjdm = ui.table("table_sbgj").getCell(rowid,"gjdjdm");
+			if(gjdjdm=="10")
+			{
+				$('#gjcl_gjdjdm').html("紧急");
+			}else if(gjdjdm=="20")
+			{
+				$('#gjcl_gjdjdm').html("高");
+			}else if(gjdjdm=="30")
+			{
+				$('#gjcl_gjdjdm').html("中");
+			}else if(gjdjdm=="40")
+			{
+				$('#gjcl_gjdjdm').html("低");
+			}
+			$('#gjcl_gjsj').html(ui.table("table_sbgj").getCell(rowid,"gjsj"));
+			$('#gjcl_czr').html(ui.table("table_sbgj").getCell(rowid,"czr_name"));
+	    	ui.modal("gjclModal").show();
+	    }
+		function dbltable_wlgjClickrow(rowid,status) {
+			ui.hidden("gjcl_gjid").val(ui.table("table_wlgj").getCell(rowid,"gjid"));
+			$('#gjcl_gjbt').html(ui.table("table_wlgj").getCell(rowid,"gjbt"));
+			$('#gjcl_gjnr').html(ui.table("table_wlgj").getCell(rowid,"gjnr"));
+			var gjdjdm = ui.table("table_wlgj").getCell(rowid,"gjdjdm");
+			if(gjdjdm=="10")
+			{
+				$('#gjcl_gjdjdm').html("紧急");
+			}else if(gjdjdm=="20")
+			{
+				$('#gjcl_gjdjdm').html("高");
+			}else if(gjdjdm=="30")
+			{
+				$('#gjcl_gjdjdm').html("中");
+			}else if(gjdjdm=="40")
+			{
+				$('#gjcl_gjdjdm').html("低");
+			}
+			$('#gjcl_gjsj').html(ui.table("table_wlgj").getCell(rowid,"gjsj"));
+			$('#gjcl_czr').html(ui.table("table_wlgj").getCell(rowid,"czr_name"));
+	    	ui.modal("gjclModal").show();
+	    }
+		function dbltable_jdgjClickrow(rowid,status) {
+			ui.hidden("gjcl_gjid").val(ui.table("table_jdgj").getCell(rowid,"gjid"));
+			$('#gjcl_gjbt').html(ui.table("table_jdgj").getCell(rowid,"gjbt"));
+			$('#gjcl_gjnr').html(ui.table("table_jdgj").getCell(rowid,"gjnr"));
+			var gjdjdm = ui.table("table_jdgj").getCell(rowid,"gjdjdm");
+			if(gjdjdm=="10")
+			{
+				$('#gjcl_gjdjdm').html("紧急");
+			}else if(gjdjdm=="20")
+			{
+				$('#gjcl_gjdjdm').html("高");
+			}else if(gjdjdm=="30")
+			{
+				$('#gjcl_gjdjdm').html("中");
+			}else if(gjdjdm=="40")
+			{
+				$('#gjcl_gjdjdm').html("低");
+			}
+			$('#gjcl_gjsj').html(ui.table("table_jdgj").getCell(rowid,"gjsj"));
+			$('#gjcl_czr').html(ui.table("table_jdgj").getCell(rowid,"czr_name"));
+	    	ui.modal("gjclModal").show();
+	    }
+		function dbltable_zlgjClickrow(rowid,status) {
+			ui.hidden("gjcl_gjid").val(ui.table("table_zlgj").getCell(rowid,"gjid"));
+			$('#gjcl_gjbt').html(ui.table("table_zlgj").getCell(rowid,"gjbt"));
+			$('#gjcl_gjnr').html(ui.table("table_zlgj").getCell(rowid,"gjnr"));
+			
+			var gjdjdm = ui.table("table_zlgj").getCell(rowid,"gjdjdm");
+			if(gjdjdm=="10")
+			{
+				$('#gjcl_gjdjdm').html("紧急");
+			}else if(gjdjdm=="20")
+			{
+				$('#gjcl_gjdjdm').html("高");
+			}else if(gjdjdm=="30")
+			{
+				$('#gjcl_gjdjdm').html("中");
+			}else if(gjdjdm=="40")
+			{
+				$('#gjcl_gjdjdm').html("低");
+			}
+			$('#gjcl_gjsj').html(ui.table("table_zlgj").getCell(rowid,"gjsj"));
+			$('#gjcl_czr').html(ui.table("table_zlgj").getCell(rowid,"czr_name"));
+	    	ui.modal("gjclModal").show();
+	    }
+	    function close_ycgjWindow() {
+	    	ui.modal("gjclModal").hide();
+	    }
+	    
+		function gjclBtnClick() {
+			$.ajax({
+		             type: "POST",
+		             url:  ui.getRealUrl("/ycgj/gjcl"),
+		             async: false,
+		             data: {gjid : ui.hidden("gjcl_gjid").val()},
+		             success: function(data){
+		             	ui.table("table_sbgj").reload();
+		             	ui.table("table_jdgj").reload();
+		             	ui.table("table_wlgj").reload();
+		             	ui.table("table_zlgj").reload();
+		             	ui.modal("gjclModal").hide();
+		             	ui.success("处理成功");
+		             }
+		         });
+		}
+		
+		
+	]]>
+	</attribute>
+</view>
